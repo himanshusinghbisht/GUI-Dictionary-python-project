@@ -1,5 +1,5 @@
 from tkinter import *
-from PyDictionary import *
+
 import json
 root=Tk()
 root.title('DCITIONARY')
@@ -11,7 +11,7 @@ data = json.load(open("dictionary.json"))
 
 
 ############################
-def click(d):
+def click():
     
     display.config(state=NORMAL)
     
@@ -28,39 +28,8 @@ def click(d):
     except:
         definition='Information regarding the text entered is not available!!!'
         display.insert(END,definition)
-        
-   
-
-
-###################################
-
-
-x={}
-def click2(d,x):
-     
-    
-    try:
-         text=entry2.get()
-         entry2.delete(0,END)
-         y=entry3.get('1.0',END) 
-         x[text]=y
-         d.update(x)
-         entry3.delete(0.0,END)
-    except:
-        
-        entry3.delete(0.0,END)
-        entry3.insert(END,"sorry action can't be performed")
-        entry3.config(state=DISABLED)
-        
-
-
-
-###################################
-d=PyDictionary()
-
-
-
-########################################
+  
+############################
 # creates a grid 50 x 50 in the main window
 c=0
 
@@ -76,7 +45,7 @@ entry=Entry(root,width=25,relief=GROOVE)
 entry.grid(row=16, column=18)
 entry.focus()
 
-button=Button(root,text='SUBMIT',font=('arial',10),fg='gray18',relief=RIDGE,command= lambda :click(d)).grid(column=19, row=16)
+button=Button(root,text='SUBMIT',font=('arial',10),fg='gray18',relief=RIDGE,command= lambda :click()).grid(column=19, row=16)
 
 c=0
 
